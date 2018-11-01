@@ -1,4 +1,5 @@
 <?php
+
 $servidor = "localhost";
 $baseDatos = "nomina";
 $nombreUsuario = "root";
@@ -16,4 +17,5 @@ if(!$conexion){
 
 echo "Conexión exitosa";
 mysqli_close($conexion);
+
 ?>
