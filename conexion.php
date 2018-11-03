@@ -15,7 +15,7 @@ if(!$conexion){
     die("Conexión fallida: ".mysqli_connect_error());
 }
 
-echo "Conexión exitosa";
+//echo "Conexión exitosa";
 mysqli_close($conexion);
 
 ?>

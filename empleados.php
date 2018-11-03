@@ -1,3 +1,6 @@
+<?php
+    require_once "conexion.php";
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,9 +22,11 @@
         </nav>
 </header>    
 <body>
-    <?php
-        require_once "conexion.php";
-    ?>
-
+    <form action="empleados.php" method="POST">
+        <select name="empleado" onchange="">
+            <option value="2"><?php echo $_POST['id'] ?></option>
+        </select>
+        <button type="submit">Buscar</button>
+    </form>
 </body>
 </html>
