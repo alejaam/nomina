@@ -1,5 +1,33 @@
 <?php
     require_once "conexion.php";
+    
+    $nombre=(isset($_POST['nombre']))?$_POST['nombre']:"";
+    $sueldo=(isset($_POST['sueldo']))?$_POST['sueldo']:"";
+    $depto=(isset($_POST['depto']))?$_POST['depto']:"";
+    $seguro=(isset($_POST['seguro']))?$_POST['seguro']:"";
+    $accion=(isset($_POST['accion']))?$_POST['accion']:"";
+
+    switch ($accion) {
+        case "btnAgregar":
+            echo $nombre;
+            echo "Presionaste btnAgregar";
+            break;
+        case 'btnModificar':
+            echo $nombre;
+            echo "Presionaste btnModificar";
+            break;
+        case 'btnEliminar':
+            echo $nombre;
+            echo "Presionaste btnEliminar";
+            break;
+        case 'btnCancelar':
+            echo $nombre;
+            echo "Presionaste btnCancelar";
+            break;
+        default:
+            # code...
+            break;
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -22,11 +50,20 @@
         </nav>
 </header>    
 <body>
-    <form action="empleados.php" method="POST">
-        <select name="empleado" onchange="">
-            <option value="2"><?php echo $_POST['id'] ?></option>
-        </select>
-        <button type="submit">Buscar</button>
+    <form action="" method="POST">
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" value="<?php echo $nombre;?>" placeholder="" id="nombre" require=""><br>
+        <label for="">Sueldo:</label>
+        <input type="number" name="sueldo" value="<?php echo $sueldo;?>" placeholder="" id="sueldo" require=""><br>
+        <label for="">Departamento:</label>
+        <input type="text" name="depto" value="<?php echo $depto;?>" placeholder="" id="depto" require=""><br>
+        <label for="">NSS:</label>
+        <input type="text" name="seguro" value="<?php echo $seguro;?>" placeholder="" id="seguro" require=""><br>
+
+        <button value="btnAgregar" type="submit" name="accion">Agregar</button>
+        <button value="btnModificar" type="submit" name="accion">Modificar</button>
+        <button value="btnEliminar" type="submit" name="accion">Eliminar</button>
+        <button value="btnCancelar" type="submit" name="accion">Cancelar</button>
     </form>
 </body>
 </html>
