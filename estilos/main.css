@@ -6,7 +6,7 @@ body,html{
 
 header{
     width: 100%;
-    height: 70px;
+    height: 46px;
     background-color: #333;
 }
 
@@ -42,6 +42,7 @@ a{
 a:hover{
     color: #39c973;
     transition: 0.2s;
+    cursor: pointer;
 }
 
 img{
@@ -51,6 +52,7 @@ img{
 
 footer {
     height: 70px;
+    height: 46px;
     background-color: #333;
 }
 
@@ -67,7 +69,6 @@ footer {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    
 }
 
 .dropdown {
@@ -88,6 +89,7 @@ footer {
 
 .navbar a:hover, .dropdown:hover .dropbtn {
     background-color: #39c973;
+    cursor: pointer;
 }
 
 .dropdown-content {

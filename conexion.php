@@ -16,6 +16,6 @@ if(!$conexion){
 }
 
 //echo "Conexión exitosa";
-mysqli_close($conexion);
+//mysqli_close($conexion);
 
 ?>

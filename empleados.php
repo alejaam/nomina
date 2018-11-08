@@ -53,30 +53,36 @@
 </head>
 <header>
         <h1>Nómina</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="novedades.html">Novedades</a></li>
-                <li><a href="empleados.php">Empleados</a></li>
-                <li><a href="ayuda.html">Ayuda</a></li>
-            </ul>
-        </nav>
+        <div class="navbar">
+            <a href="index.html">Inicio</a>
+            <a href="#news">Novedades</a>
+            <div class="dropdown">
+                <button class="dropbtn">Empleados</button>
+                    <div class="dropdown-content">
+                        <a href="empleados.php">Agregar</a>
+                        <a href="mostrar.php">Mostrar</a>
+                        <a href="#">Eliminar</a>
+                    </div>
+            </div> 
+        </div>
 </header>    
 <body>
     <form action="" method="POST">
         <label for="nombre">Nombre:</label>
-        <input type="text" name="nombre" value="<?php echo $nombre;?>" placeholder="" id="nombre" require=""><br>
+        <input type="text" name="nombre" value="<?php echo $nombre;?>" id="nombre" required><br>
         <label for="">Sueldo:</label>
-        <input type="number" name="sueldo" value="<?php echo $sueldo;?>" placeholder="" id="sueldo" require=""><br>
+        <input type="number" name="sueldo" value="<?php echo $sueldo;?>" id="sueldo" required><br>
         <label for="">Departamento:</label>
-        <input type="text" name="depto" value="<?php echo $depto;?>" placeholder="" id="depto" require=""><br>
+        <input type="text" name="depto" value="<?php echo $depto;?>" id="depto" required><br>
         <label for="">NSS:</label>
-        <input type="text" name="seguro" value="<?php echo $seguro;?>" placeholder="" id="seguro" require=""><br>
+        <input type="text" name="seguro" value="<?php echo $seguro;?>" id="seguro" required><br>
 
         <button value="btnAgregar" type="submit" name="accion">Agregar</button>
         <button value="btnModificar" type="submit" name="accion">Modificar</button>
         <button value="btnEliminar" type="submit" name="accion">Eliminar</button>
         <button value="btnCancelar" type="submit" name="accion">Cancelar</button>
     </form>
+    <footer>
+    </footer>
 </body>
 </html>
