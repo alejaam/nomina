@@ -14,13 +14,13 @@
             $query = mysqli_query($conexion,$sql) or die (mysqli_error($conexion));
             //Validamos si mysqli_query(); retorna un true o un false para saber si pudo hacer la inserción
             if ($query) {
-                // echo "archivo agregado con exito";
-                // $success=sha1(md5("exito"));
+                echo "Empleado agregado con éxito";
                 header("location: empleados.php?success");
             }else{
-                // echo "no se pudo, subir hubo un error".mysqli_error($con)."<br>.".mysqli_errno($con);
                 
-                echo("Error description: " . mysqli_error($conexion));
+                echo "No se pudo agregar empleado, error: ".mysqli_error($con)."<br>.".mysqli_errno($con);
+                
+                //echo("Error description: " . mysqli_error($conexion));
             }
             /*echo $nombre;
             echo "Presionaste btnAgregar";*/
