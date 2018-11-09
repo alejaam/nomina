@@ -21,9 +21,9 @@
             <div class="dropdown">
                 <button class="dropbtn">Empleados</button>
                     <div class="dropdown-content">
-                        <a href="empleados.php">Agregar</a>
-                        <a href="mostrar.php">Mostrar</a>
-                        <a href="#">Eliminar</a>
+                        <!-- <a href="empleados.php">Agregar</a> -->
+                        <a href="#">Pagar</a>
+                        <!-- <a href="#">Eliminar</a> -->
                     </div>
             </div> 
         </div>
@@ -39,11 +39,12 @@
 <body>
     <table border="1px">
         <tr>
-            <td>ID</td>
-            <td>Nombre</td>
-            <td>Sueldo</td>
-            <td>Departamento</td>
-            <td>Seguro</td>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Sueldo</th>
+            <th>Departamento</th>
+            <th>Seguro</th>
+            <th><a href="agregarEmpleado.php"><button type="button">Nuevo</button></a></th>
         </tr>
         <?php foreach($conexion->query($sql) as $fila){?>
         <tr>
@@ -52,11 +53,11 @@
             <td><?php echo $fila['sueldo'] ?></td>
             <td><?php echo $fila['departamento'] ?></td>
             <td><?php echo $fila['seguro'] ?></td>
+            <td><a href="modificarEmpleado.php"><button type="button">Modificar</button></a></td>
+            <td><a href="eliminarEmpleado.php"><button type="button">Eliminar</button></a></td>
         </tr>
         <?php } ?>
-
-    <footer>
-    
-    </footer>
 </body>
+    <footer>
+    </footer>
 </html>
