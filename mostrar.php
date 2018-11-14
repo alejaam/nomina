@@ -18,14 +18,7 @@
         <div class="navbar">
             <a href="index.html">Inicio</a>
             <a href="#news">Novedades</a>
-            <div class="dropdown">
-                <button class="dropbtn">Empleados</button>
-                    <div class="dropdown-content">
-                        <!-- <a href="empleados.php">Agregar</a> -->
-                        <a href="#">Pagar</a>
-                        <!-- <a href="#">Eliminar</a> -->
-                    </div>
-            </div> 
+            <a href="empleados.php">Empleados</a>
         </div>
         <!-- <nav>
             <ul>
@@ -35,7 +28,7 @@
                 <li><a href="ayuda.html">Ayuda</a></li>
             </ul>
         </nav> -->
-</header>    
+</header>      
 <body>
     <table border="1px">
         <tr>

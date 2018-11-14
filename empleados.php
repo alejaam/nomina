@@ -1,47 +1,3 @@
-<?php
-    include "conexion.php";
-    
-    $nombre = (isset($_POST['nombre']))?$_POST['nombre']:"";
-    $sueldo = (isset($_POST['sueldo']))?$_POST['sueldo']:"";
-    $depto = (isset($_POST['depto']))?$_POST['depto']:"";
-    $seguro = (isset($_POST['seguro']))?$_POST['seguro']:"";
-    $accion = (isset($_POST['accion']))?$_POST['accion']:"";
-
-    switch ($accion) {
-        case "btnAgregar":
-            //Creamos el query para insertar un registro en MySql, y lo mandamos utilizando mysqli_query();
-            $sql = "INSERT INTO prueba(nombre,sueldo,departamento,seguro) VALUES('$nombre',$sueldo,'$depto','$seguro')";
-            $query = mysqli_query($conexion,$sql) or die (mysqli_error($conexion));
-            //Validamos si mysqli_query(); retorna un true o un false para saber si pudo hacer la inserción
-            if ($query) {
-                echo "Empleado agregado con éxito";
-                header("location: empleados.php?success");
-            }else{
-                
-                echo "No se pudo agregar empleado, error: ".mysqli_error($con)."<br>.".mysqli_errno($con);
-                
-                //echo("Error description: " . mysqli_error($conexion));
-            }
-            /*echo $nombre;
-            echo "Presionaste btnAgregar";*/
-            break;
-        case 'btnModificar':
-            echo $nombre;
-            echo "Presionaste btnModificar";
-            break;
-        case 'btnEliminar':
-            echo $nombre;
-            echo "Presionaste btnEliminar";
-            break;
-        case 'btnCancelar':
-            echo $nombre;
-            echo "Presionaste btnCancelar";
-            break;
-        default:
-            # code...
-            break;
-    }
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,37 +6,46 @@
     <link rel="stylesheet" type="text/css" media="screen" href="estilos/main.css" />
     <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Open+Sans|Roboto" rel="stylesheet">  
     <script src="main.js"></script>
+    <meta name="viewport" content="width=device-width, user-scalable=no initial-scale=1.0, maximium-scale=1.0, minimum-scale=1.0">
 </head>
 <header>
-<h1>Nómina</h1>
+        <h1>Nómina</h1>
         <div class="navbar">
             <a href="index.html">Inicio</a>
             <a href="#news">Novedades</a>
-            <div class="dropdown">
-                <button class="dropbtn">Empleados</button>
-                    <div class="dropdown-content">
-                        <!-- <a href="empleados.php">Agregar</a> -->
-                        <a href="#">Pagar</a>
-                        <!-- <a href="#">Eliminar</a> -->
-                    </div>
-            </div> 
+            <a href="empleados.php">Empleados</a>
         </div>
-</header>    
+        <!-- <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="novedades.html">Novedades</a></li>
+                <li><a href="empleados.php">Consultar</a></li>
+                <li><a href="ayuda.html">Ayuda</a></li>
+            </ul>
+        </nav> -->
+</header>   
 <body>
-    <form action="" method="POST">
-        <label for="nombre">Nombre:</label>
-        <input type="text" name="nombre" value="<?php echo $nombre;?>" id="nombre" required><br>
-        <label for="">Sueldo:</label>
-        <input type="number" name="sueldo" value="<?php echo $sueldo;?>" id="sueldo" required><br>
-        <label for="">Departamento:</label>
-        <input type="text" name="depto" value="<?php echo $depto;?>" id="depto" required><br>
-        <label for="">NSS:</label>
-        <input type="text" name="seguro" value="<?php echo $seguro;?>" id="seguro" required><br>
-        <button value="btnAgregar" type="submit" name="accion">Agregar</button>
-        <!-- <button value="btnModificar" type="submit" name="accion">Modificar</button>
-        <button value="btnEliminar" type="submit" name="accion">Eliminar</button>
-        <button value="btnCancelar" type="submit" name="accion">Cancelar</button> -->
-    </form>
+    <div class="contenedor">
+        <a href="agregarEmpleado.php">
+        <div class="carta">
+            <img src="imagenes/agregarEmpleado.png">
+            <a href="agregarEmpleado.php">Agregar</a>
+        </div>
+        </a>
+        <div class="carta">
+            <img src="imagenes/eliminarEmpleado.png">
+            <a href="#">Eliminar</a>
+        </div>
+        <div class="carta">
+            <img src="imagenes/modificarEmpleado.png">
+            
+            <a href="mostrar.php">Mostrar</a>
+        </div>
+    </div>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium consequatur quod deserunt atque, saepe excepturi magnam eveniet ab commodi eligendi. Vero nostrum ad dignissimos iste dolores voluptate? Perferendis, sunt qui!
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto at non sequi fuga exercitationem. Tempore, voluptatum aliquid rerum quae sed a laborum nesciunt! Vero eligendi placeat, nam dolores omnis dolore.
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quas eveniet iste ad accusamus animi voluptatibus tempore. Odio, consectetur cum nulla, tempore enim possimus quod commodi obcaecati, quibusdam quasi voluptatibus.
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo nostrum ipsum porro aliquid, quae architecto reiciendis blanditiis molestias ullam accusamus, rerum optio earum soluta deserunt vitae sint, magnam sit omnis.
     <footer>
     </footer>
 </body>
