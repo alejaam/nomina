@@ -15,14 +15,6 @@
             <a href="#news">Novedades</a>
             <a href="empleados.php">Empleados</a>
         </div>
-        <!-- <nav>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="novedades.html">Novedades</a></li>
-                <li><a href="empleados.php">Consultar</a></li>
-                <li><a href="ayuda.html">Ayuda</a></li>
-            </ul>
-        </nav> -->
 </header>   
 <body>
     <div class="contenedor">
@@ -42,10 +34,6 @@
             <a href="mostrar.php">Mostrar</a>
         </div>
     </div>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium consequatur quod deserunt atque, saepe excepturi magnam eveniet ab commodi eligendi. Vero nostrum ad dignissimos iste dolores voluptate? Perferendis, sunt qui!
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto at non sequi fuga exercitationem. Tempore, voluptatum aliquid rerum quae sed a laborum nesciunt! Vero eligendi placeat, nam dolores omnis dolore.
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quas eveniet iste ad accusamus animi voluptatibus tempore. Odio, consectetur cum nulla, tempore enim possimus quod commodi obcaecati, quibusdam quasi voluptatibus.
-    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo nostrum ipsum porro aliquid, quae architecto reiciendis blanditiis molestias ullam accusamus, rerum optio earum soluta deserunt vitae sint, magnam sit omnis.
     <footer>
     </footer>
 </body>

@@ -20,14 +20,6 @@
             <a href="#news">Novedades</a>
             <a href="empleados.php">Empleados</a>
         </div>
-        <!-- <nav>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="novedades.html">Novedades</a></li>
-                <li><a href="empleados.php">Consultar</a></li>
-                <li><a href="ayuda.html">Ayuda</a></li>
-            </ul>
-        </nav> -->
 </header>      
 <body>
     <table border="1px">
