@@ -64,17 +64,9 @@
             <a href="#news">Novedades</a>
             <a href="empleados.php">Empleados</a>
         </div>
-        <!-- <nav>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="novedades.html">Novedades</a></li>
-                <li><a href="empleados.php">Consultar</a></li>
-                <li><a href="ayuda.html">Ayuda</a></li>
-            </ul>
-        </nav> -->
 </header>   
 <body>
-    <form action="" method="POST">
+    <form action="mostrar.php" method="POST">
         <label for="nombre">Nombre:</label>
         <input type="text" name="nombre" value="<?php echo $nombre;?>" id="nombre" required><br>
         <label for="">Sueldo:</label>

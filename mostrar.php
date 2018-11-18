@@ -31,7 +31,7 @@
             <th>Seguro</th>
             <th><a href="agregarEmpleado.php"><button type="button">Nuevo</button></a></th>
         </tr>
-        <?php foreach($conexion->query($sql) as $fila){?>
+        <?php foreach(mysqli_query($conexion,$sql) as $fila){?>
         <tr>
             <td><?php echo $fila['id'] ?></td>
             <td><?php echo $fila['nombre'] ?></td>
