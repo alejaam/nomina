@@ -1,6 +1,12 @@
 <?php
         include "conexion.php";
-
+    
+        $nombre = (isset($_POST['nombre']))?$_POST['nombre']:"";
+        $sueldo = (isset($_POST['sueldo']))?$_POST['sueldo']:"";
+        $depto = (isset($_POST['depto']))?$_POST['depto']:"";
+        $seguro = (isset($_POST['seguro']))?$_POST['seguro']:"";
+        $accion = (isset($_POST['accion']))?$_POST['accion']:"";
+        
         $sql = "SELECT * FROM prueba";
         $query = mysqli_query($conexion,$sql);
     ?>
@@ -22,6 +28,20 @@
         </div>
 </header>      
 <body>
+    <form action="" method="POST">
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" value="<?php echo $nombre;?>" id="nombre" required><br>
+        <label for="">Sueldo:</label>
+        <input type="number" name="sueldo" value="<?php echo $sueldo;?>" id="sueldo" required><br>
+        <label for="">Departamento:</label>
+        <input type="text" name="depto" value="<?php echo $depto;?>" id="depto" required><br>
+        <label for="">NSS:</label>
+        <input type="text" name="seguro" value="<?php echo $seguro;?>" id="seguro" required><br>
+        <button value="btnAgregar" type="submit" name="accion">Agregar</button>
+        <button value="btnModificar" type="submit" name="accion">Modificar</button>
+        <button value="btnEliminar" type="submit" name="accion">Eliminar</button>
+        <button value="btnCancelar" type="submit" name="accion">Cancelar</button>
+    </form>
     <table border="1px">
         <tr>
             <th>ID</th>
@@ -38,8 +58,18 @@
             <td><?php echo $fila['sueldo'] ?></td>
             <td><?php echo $fila['departamento'] ?></td>
             <td><?php echo $fila['seguro'] ?></td>
-            <td><a href="modificarEmpleado.php"><button type="button">Modificar</button></a></td>
-            <td><a href="eliminarEmpleado.php"><button type="button">Eliminar</button></a></td>
+            <td>
+            <form action="" method="post">
+                
+                <input type="hidden" name="id" value="<?php echo $fila['id'] ?>">
+                <input type="hidden" name="nombre" value="<?php echo $fila['nombre'] ?>">
+                <input type="hidden" name="sueldo" value="<?php echo $fila['sueldo'] ?>">
+                <input type="hidden" name="depto" value="<?php echo $fila['departamento'] ?>">
+                <input type="hidden" name="seguro" value="<?php echo $fila['seguro'] ?>">
+
+                <input type="submit" value="Seleccionar" name="accion">
+            </form>
+            </td>
         </tr>
         <?php } ?>
 </body>
