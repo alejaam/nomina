@@ -13,7 +13,7 @@
     $seguro = (isset($_POST['seguro']))?$_POST['seguro']:"";
 
     $accion = (isset($_POST['accion']))?$_POST['accion']:"";
-
+    $sql = "";
     switch ($accion) {
         case "btnAgregar":
             //Creamos el query para insertar un registro en MySql, y lo mandamos utilizando mysqli_query();
@@ -39,7 +39,7 @@
             //Validamos si mysqli_query(); retorna un true o un false para saber si pudo hacer la inserción
             if ($query) {
                 echo "Empleado modificado con éxito";
-                //header("location: empleados.php?success"); 
+                header("location: empleados.php?success"); 
             }else{
                 
                 echo "No se pudo agregar empleado, error: ".mysqli_error($con)."<br>.".mysqli_errno($con);
@@ -51,6 +51,21 @@
             echo "Presionaste btnModificar";
             break;
         case "btnEliminar":
+
+            //Creamos el query para eliminar un registro en MySql, y lo mandamos utilizando mysqli_query();
+            $sql = "DELETE FROM prueba WHERE id = $id";
+            $query = mysqli_query($conexion,$sql) or die (mysqli_error($conexion));
+            //Validamos si mysqli_query(); retorna un true o un false para saber si pudo hacer la inserción
+            if ($query) {
+                echo "Empleado modificado con éxito";
+                header("location: empleados.php?success"); 
+            }else{
+                
+                echo "No se pudo agregar empleado, error: ".mysqli_error($con)."<br>.".mysqli_errno($con);
+                
+                //echo("Error description: " . mysqli_error($conexion));
+            }
+
             echo $nombre;
             echo "Presionaste btnEliminar";
             break;
@@ -111,7 +126,7 @@
         <input type="text" name="seguro" value="<?php echo $seguro;?>" id="seguro" required><br>
         <button value="btnAgregar" type="submit" name="accion">Agregar</button>
         <button value="btnModificar" type="submit" name="accion">Modificar</button>
-        <button value="btnEliminar" type="submit" name="accicon">Eliminar</button>
+        <button value="btnEliminar" type="submit" name="accion">Eliminar</button>
         <button value="btnCancelar" type="clean" name="accion">Cancelar</button>
     </form>
     <table border="1px">
