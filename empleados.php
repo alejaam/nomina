@@ -140,7 +140,7 @@
         </tr>
         <?php
             
-            $sql = "SELECT * FROM prueba";
+            $sql = "SELECT * FROM empleado";
 
             foreach(mysqli_query($conexion,$sql) as $fila){
         ?>
