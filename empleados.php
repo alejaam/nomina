@@ -21,8 +21,10 @@
             $query = mysqli_query($conexion,$sql) or die (mysqli_error($conexion));
             //Validamos si mysqli_query(); retorna un true o un false para saber si pudo hacer la inserción
             if ($query) {
+
                 echo "Empleado agregado con éxito";
                 header("location: empleados.php?success");
+            
             }else{
                 
                 echo "No se pudo agregar empleado, error: ".mysqli_error($con)."<br>.".mysqli_errno($con);
