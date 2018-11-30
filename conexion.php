@@ -3,12 +3,12 @@
 $servidor = "localhost";
 $baseDatos = "nomina";
 $nombreUsuario = "root";
-$contraseña = "";
+$contraseña = "acatucontraseña";
 
 // Creando la conexión 
 
 $conexion = mysqli_connect($servidor,$nombreUsuario,$contraseña,$baseDatos);
-
+mysqli_query($conexion, "SET NAMES 'utf8'");
 // Checando la conexión
 
 if(!$conexion){
