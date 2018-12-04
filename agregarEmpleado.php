@@ -29,7 +29,7 @@
             $query = mysqli_query($conexion,$agregarEmpleado) or die (mysqli_error($conexion));
             //Validamos si mysqli_query(); retorna un true o un false para saber si pudo hacer la inserción
             if ($query) {
-                echo "Empleado agregado con éxito";
+                echo "<script>alert('Empleado agregado con éxito')</script>";
                 header("location: empleados.php?success");
             }else{
                 
@@ -58,7 +58,7 @@
 <header>
         <h1>Nómina</h1>
         <div class="navbar">
-            <a href="index.html">Inicio</a>
+            <a href="index.php">Inicio</a>
             <a href="nomina.php">Nomina</a>
             <a href="empleados.php">Empleados</a>
         </div>

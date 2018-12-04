@@ -82,7 +82,7 @@
 <header>
         <h1>Nómina</h1>
         <div class="navbar">
-            <a href="index.html">Inicio</a>
+            <a href="index.php">Inicio</a>
             <a href="nomina.php">Nomina</a>
             <a href="empleados.php">Empleados</a>
         </div>
@@ -99,11 +99,12 @@
             <img src="imagenes/eliminarEmpleado.png">
             <a href="#">Eliminar</a>
         </div> -->
+        <a href="mostrar.php">
         <div class="carta">
             <img src="imagenes/modificarEmpleado.png">
-            
             <a href="mostrar.php">Mostrar</a>
         </div>
+        </a>
     </div>
     <footer>
     </footer>
