@@ -143,6 +143,12 @@ date_default_timezone_set('America/Mexico_City');
             <td></td>
             <td style="color: #39c973; font-weight: 900">TOTAL:</td>
         </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><input type="submit" value="Generar Nomina"></td>
+        </tr>
     </table>
 </form>
 </body>

@@ -1,6 +1,9 @@
 <?php
 
 include "conexion.php";
+// $queryEmpleado = "SELECT idEmpleado, nombre, rfc, nss FROM empleado";
+//mysqli_query($conexion, "SET NAMES 'utf8'");
+//$query = mysqli_query($conexion,$sql);
 
 ?>
 <!DOCTYPE html>
@@ -10,31 +13,22 @@ include "conexion.php";
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Buscar Empleado</title>
-<script>
-    function datosEmpleado(idEmp,nombre,rfc,nss){
-        opener.document.crearNomina.idEmpleado.value = idEmp;
-        opener.document.crearNomina.nombre.value = nombre;
-        opener.document.crearNomina.rfc.value = rfc;
-        opener.document.crearNomina.nss.value = nss;
-        window.close();
-    }
-
-</script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="bootstrap-3.3.7/css/bootstrap.min.css">
+    <script type="text/javascript" src="js/busquedaTiempoReal.js"></script>
 </head>
-<body>
+<body onload="busquedaTiempoReal();">
 <table border="1px">
-    <tr>
+    <input type="text" name="buscarEmpleado" id="buscarEmpleado" class="form-control" placeholder="Buscar empleado..." value="" onkeyup="busquedaTiempoReal();">
+    <div id="datos"></div>
+    <!-- <tr>
         <td>idEmpleado</td>
         <td>Nombre</td>
         <td>RFC</td>
         <td>NSS</td>
     </tr>
     <?php 
-          
-          $sql = "SELECT idEmpleado,nombre,rfc,nss FROM empleado";
-          //mysqli_query($conexion, "SET NAMES 'utf8'");
-          //$query = mysqli_query($conexion,$sql);
-        foreach(mysqli_query($conexion,$sql) as $fila){?>
+        foreach(mysqli_query($conexion,$queryEmpleado   ) as $fila){?>
     <tr>
         <td><?php echo $fila['idEmpleado'] ?></td>
         <td><?php echo $fila['nombre'] ?></td>
@@ -51,7 +45,7 @@ include "conexion.php";
     </tr>
     <?php 
         } 
-    ?>
+    ?> -->
 </table>
     
 </body>
