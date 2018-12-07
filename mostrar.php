@@ -88,7 +88,7 @@
 <header>
         <h1>Nómina</h1>
         <div class="navbar">
-            <a href="index.html">Inicio</a>
+            <a href="index.php">Inicio</a>
             <a href="nomina.php">Nomina</a>
             <a href="empleados.php">Empleados</a>
         </div>
@@ -151,7 +151,7 @@
 
         <?php 
           
-          $sql = "SELECT empl.*, pto.*, are.* FROM empleado empl INNER JOIN puesto pto ON empl.idPuesto = pto.idPuesto INNER JOIN area are ON empl.idArea = are.idArea";
+          $sql = "SELECT empl.*, pto.*, are.* FROM empleado empl INNER JOIN puesto pto ON empl.idPuesto = pto.idPuesto INNER JOIN area are ON empl.idArea = are.idArea WHERE activo= 1";
           //mysqli_query($conexion, "SET NAMES 'utf8'");
           //$query = mysqli_query($conexion,$sql);
         foreach(mysqli_query($conexion,$sql) as $fila){?>
@@ -184,5 +184,7 @@
             } 
         ?>
         </table>
+<footer>
+</footer>
 </body>
 </html>

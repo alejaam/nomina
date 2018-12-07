@@ -64,46 +64,59 @@
         </div>
 </header>   
 <body>
+    
     <form action="" method="POST">
-
-        <label for="nombre">Nombre:</label>
-        <input type="text" name="nombre" value="<?php echo $nombre;?>" id="nombre" required ><br>
-        <label for="">numTel:</label>
-        <input type="number" name="numTel" value="<?php echo $numTel;?>" id="numTel" required><br>
-        <label for="">email:</label>
-        <input type="email" name="email" value="<?php echo $email;?>" id="email" required><br>
-        Puesto: <select name="idPuesto">
-            <?php
-                $obteneridPuesto = "SELECT idPuesto, nombrePuesto,sueldoBase FROM puesto";
-                foreach(mysqli_query($conexion,$obteneridPuesto) as $fila){
-            ?>
-                <option value="<?php echo $fila['idPuesto']?>"><?php echo $fila['nombrePuesto']?></option>
+    <table class="frm">
+        <tr>
+            <td ><label for="nombre">Nombre: </label><input type="text" name="nombre" value="<?php echo $nombre;?>" style="width:250px;" id="nombre" required ></td>
+            <td><label for="">Telefono: </label><input type="number" name="numTel" value="<?php echo $numTel;?>" id="numTel" required></td>
+            <td><label for="">E-mail: </label><input type="email" name="email" value="<?php echo $email;?>" id="email" required></td>
+        </tr>
+        <tr>
+            <td><label> Puesto: </label>
+            <select name="idPuesto">
+                <?php
+                    $obteneridPuesto = "SELECT idPuesto, nombrePuesto,sueldoBase FROM puesto";
+                    foreach(mysqli_query($conexion,$obteneridPuesto) as $fila){
+                ?>
+                    <option value="<?php echo $fila['idPuesto']?>"><?php echo $fila['nombrePuesto']?></option>
+                    
+                <?php } ?>
+                <input type="hidden" name="sueldoBase" value="<?php echo $fila['sueldoBase']?>">
+            </select></td>
+            <td><label>Area:</label>
+            <select name="idArea">
+                <?php
                 
-            <?php } ?>
-            <input type="hidden" name="sueldoBase" value="<?php echo $fila['sueldoBase']?>">
-        </select>
-         Area: <select name="idArea">
-            <?php
-            
-                $obteneridArea = "SELECT idArea, nombreArea FROM area";
-                foreach(mysqli_query($conexion,$obteneridArea) as $fila){
-            ?>
-                <option value="<?php echo $fila['idArea']?>"><?php echo $fila['nombreArea']?></option>
-            <?php } ?>
-        </select>
-        Tipo de Nomina: <select name="tipoNomina">
-            <option value="Q">Quincenal</option>
-            <option value="S">Semanal</option>
-        </select><br>
-        Dirección: <input type="textarea" name="direccion" id="direccion">
-        RFC: <input type="text" name="rfc" id="rfc">
-        NSS: <input type="text" name="nss" value="<?php echo $nss;?>" id="nss" required><br>
-        Genero: <select name="genero">
+                    $obteneridArea = "SELECT idArea, nombreArea FROM area";
+                    foreach(mysqli_query($conexion,$obteneridArea) as $fila){
+                ?>
+                    <option value="<?php echo $fila['idArea']?>"><?php echo $fila['nombreArea']?></option>
+                <?php } ?>
+            </select></td>
+            <td><label>Tipo de Nomina: <select name="tipoNomina"></label>
+                <option value="Q">Quincenal</option>
+                <option value="S">Semanal</option>
+            </select></td>
+        </tr>
+        <tr>
+            <td><label>Dirección: <input type="textarea" name="direccion" id="direccion"></label></td>
+            <td><label>RFC: <input type="text" name="rfc" id="rfc"></label></td>
+            <td><label>NSS: <input type="text" name="nss" value="<?php echo $nss;?>" id="nss" required><br></label></td>
+        </tr>
+        <tr>
+        <td colspan="4"><label> Genero:</label>
+         <select name="genero">
                     <option value="H">Hombre</option>
                     <option value="M">Mujer</option>
                     <option value="O">Otro</option>
-                </select>
-        <button value="btnAgregar" type="submit" name="accion">Agregar</button>
+                </select></td>
+        </tr> 
+        <tr>
+            <td colspan="4" align="center"><button class="botonGenerar" value="btnAgregar" type="submit" name="accion">Agregar</button></td>
+        </tr>               
+        
+    </table>  
     </form>
     <footer>
     </footer>

@@ -1,7 +1,7 @@
 <?php
 
 include "conexion.php";
-// $queryEmpleado = "SELECT idEmpleado, nombre, rfc, nss FROM empleado";
+//$queryEmpleado = "SELECT idEmpleado,tipoNomina, nombre, rfc, nss FROM empleado";
 //mysqli_query($conexion, "SET NAMES 'utf8'");
 //$query = mysqli_query($conexion,$sql);
 
@@ -18,7 +18,7 @@ include "conexion.php";
     <script type="text/javascript" src="js/busquedaTiempoReal.js"></script>
 </head>
 <body onload="busquedaTiempoReal();">
-<table border="1px">
+<table border="1px" class="frm">
     <input type="text" name="buscarEmpleado" id="buscarEmpleado" class="form-control" placeholder="Buscar empleado..." value="" onkeyup="busquedaTiempoReal();">
     <div id="datos"></div>
     <!-- <tr>
@@ -28,7 +28,7 @@ include "conexion.php";
         <td>NSS</td>
     </tr>
     <?php 
-        foreach(mysqli_query($conexion,$queryEmpleado   ) as $fila){?>
+        foreach(mysqli_query($conexion,$queryEmpleado) as $fila){?>
     <tr>
         <td><?php echo $fila['idEmpleado'] ?></td>
         <td><?php echo $fila['nombre'] ?></td>
@@ -36,12 +36,13 @@ include "conexion.php";
         <td><?php echo $fila['nss'] ?></td>
         <?php
             $idEmpleado = $fila['idEmpleado'];
+            $tipoNomina= $fila['tipoNomina'];
             $nombre = $fila['nombre'];
             $nombre = str_replace(" ","&nbsp;", $nombre);
             $rfc = $fila['rfc'];
             $nss = $fila['nss'];
         ?>
-        <td><input type="button" value="Seleccionar" onclick="datosEmpleado('<?php echo $idEmpleado ?>','<?php echo $nombre ?>','<?php echo $rfc?>','<?php echo $nss ?>')"></td>
+        <td><input type="button" value="Seleccionar" onclick="datosEmpleado('<?php echo $idEmpleado ?>','<?php echo $tipoNomina ?>','<?php echo $nombre ?>','<?php echo $rfc?>','<?php echo $nss ?>')"></td>
     </tr>
     <?php 
         } 

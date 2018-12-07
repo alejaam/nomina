@@ -36,7 +36,7 @@ if(isset($_SESSION['nombre_usuario'])){
     
     <footer>
         <div class="infooter">
-            <center>Todos los derechos reservados.</center>
+            Todos los derechos reservados.
         </div>
     </footer>
     

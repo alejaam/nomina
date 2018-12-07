@@ -52,9 +52,9 @@ img{
 }
 
 footer {
-
+    
     background-color: #333;
-    position: relative;
+    position: absolute;
     bottom: 0;
     width: 100%;
     height: 40px;
@@ -173,7 +173,7 @@ footer {
 .infooter {
     
     color:white;
-    
+    padding: 10px
 }
 
 table {
@@ -195,3 +195,28 @@ table {
     font-weight: bold;
     font-style: italic;
  }
+
+ .botonGenerar {
+    text-decoration: none;
+    padding: 3px;
+    font-family: Roboto;
+    font-weight: 300;
+    font-size: 25px;
+    color: black;
+    background-color: white;
+    border: 2px solid #39c973;
+    /* box-shadow: 0 5px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+    transition-duration: 0.4s;
+ }
+ .botonGenerar:hover{
+    background-color: #39c973;
+     cursor: pointer;
+     opacity: 0.8;
+     text-decoration: none;
+ }
+
+ .frm input {
+     border-radius: 5px;
+     
+ }
+ 
