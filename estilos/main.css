@@ -220,4 +220,13 @@ table {
      border-radius: 5px;
      
  }
+
+ #resultado {
+    background-color: red;
+    color: white;
+    font-weight: bold;
+}
+#resultado.ok {
+    background-color: green;
+}
  

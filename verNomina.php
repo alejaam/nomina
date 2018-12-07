@@ -2,10 +2,11 @@
 
     include "conexion.php";
 
-    $totalNomina = (isset($_POST['totalNomina']))?$_POST['totalNomina']:"";
+    $idNomina = (isset($_POST['idNomina']))?$_POST['idNomina']:"";
     $conceptoNomina = (isset($_POST['concepto']))?$_POST['concepto']:"";
     $fecha = (isset($_POST['fecha']))?$_POST['fecha']:"";
     $tipoNomina = (isset($_POST['tipoNomina']))?$_POST['tipoNomina']:"";
+    $nominaNeto = (isset($_POST['nominaNeto']))?$_POST['nominaNeto']:"";
     $rfc = (isset($_POST['rfc']))?$_POST['rfc']:"";
     $nss = (isset($_POST['nss']))?$_POST['nss']:"";
     $fondoAhorro = (isset($_POST['fondoAhorro']))?$_POST['fondoAhorro']:"";
@@ -31,7 +32,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Nomina n° <?php echo $idNomina ?></title>
+    <link rel="stylesheet" href="estilos/main.css">
    
 </head>
 <body>
@@ -67,9 +69,10 @@
         <tr>
             <td style="color: #39c973"><b>DATOS DE LA NOMINA:</td>        
             <td><label for='person3'> Fecha: </label><?php echo $fecha ?></td>
-            <td colspan="2"><label>Tipo nomina: </label>
+            <td><label>Tipo nomina: </label>
                 <?php echo $tipoNomina ?>
             </td>
+            <td><label>Nomina n°: </label><?php echo $idNomina ?></td>
         </tr>
         <tr>
             <td colspan="4" align="center"><b>PERCEPCIONES</b></td>
@@ -145,10 +148,11 @@
         <tr>
             <td colspan="2"></td>
             <td style="color: #39c973; font-weight: 900">TOTAL NOMINA:</td>
-            <td><?php echo $totalNomina ?></td>
+            <td><u><?php echo $nominaNeto ?></u></td>
         </tr>
         <tr>
-            <td colspan="4" align="center"><input type='button' onclick='window.print();' value='Imprimir' /></td>
+            <td colspan="2" align="center"><input class="botonGenerar" type='button' onclick='window.print();' value='Imprimir' /></td>
+            <td colspan="2" align="center"><input class="botonGenerar" type='button' onclick="location.href = 'mostrarNominas.php'" value='Regresar' /></td>
         </tr>
     </table>
 </body>

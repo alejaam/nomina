@@ -84,7 +84,5 @@
         </tr>
         
         </table>
-<footer>
-</footer>
 </body>
 </html>

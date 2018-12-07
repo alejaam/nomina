@@ -3,7 +3,7 @@ include "conexion.php";
 date_default_timezone_set('America/Mexico_City');
 
 
-    $totalNomina = (isset($_POST['totalNomina']))?$_POST['totalNomina']:"";
+    $idNomina = (isset($_POST['idNomina']))?$_POST['idNomina']:"";
     $conceptoNomina = (isset($_POST['conceptoNomina']))?$_POST['conceptoNomina']:"";
     $fecha = (isset($_POST['fecha']))?$_POST['fecha']:"";
     $tipoNomina = (isset($_POST['tipoNomina']))?$_POST['tipoNomina']:"";
@@ -23,9 +23,9 @@ date_default_timezone_set('America/Mexico_City');
     $idEmpleado = (isset($_POST['idEmpleado']))?$_POST['idEmpleado']:"";
     $bonoProductividad = (isset($_POST['bonoProductividad']))?$_POST['bonoProductividad']:"";
     $tiempoExtra = (isset($_POST['tiempoExtra']))?$_POST['tiempoExtra']:"";
-    $totalNomina += $bonoProductividad; 
+    $nominaNeto = (isset($_POST['nominaNeto']))?$_POST['nominaNeto']:"";
+    
     $genero = (isset($_POST['genero']))?$_POST['genero']:"";
-
     $sueldoBase = (isset($_POST['sueldoBase']))?$_POST['sueldoBase']:"1";
 
 
@@ -45,9 +45,9 @@ switch ($accion) {
                                                 `valesDespensa`, `ayudaGasolina`, `primaVacacional`,
                                                 `totalPercepcion`, `totalDeduccion`, `isr`, `infonavit`,
                                                 `imss`, `faltas`, `retardos`, `bonoProductividad`, `aguinaldo`, `tiempoExtra`)
-                         VALUES (NULL, '$idEmpleado', '$totalNomina', '$conceptoNomina', '$fecha', '$tipoNomina', 
+                         VALUES (NULL, '$idEmpleado', '$nominaNeto', '$conceptoNomina', '$fecha', '$tipoNomina', 
                                 '$fondoAhorro', '$valesDespensa', '$ayudaGasolina','$primaVacacional', '$totalPercepcion',
-                                 '$totalDeduccion', '0', '$infonavit', '$imss', '0', '0', '$bonoProductividad', '0')";
+                                 '$totalDeduccion', '0', '$infonavit', '$imss', '0', '0', '$bonoProductividad', '0', '$tiempoExtra')";
         $query = mysqli_query($conexion,$agregarNomina) or die (mysqli_error($conexion));
         //Validamos si mysqli_query(); retorna un true o un false para saber si pudo hacer la inserción
         if ($query) {
@@ -111,7 +111,7 @@ switch ($accion) {
             <td><label>Numero de Empleado </label></td>
             <td><input name="idEmpleado" id="idEmpleado" value="" readonly required/> <input type="button" onclick="popup()" style="background-image: url(imagenes/buscar.ico); padding: 2px 10px 15px 20px; background-repeat: no-repeat;"></td>
             <td><label>Nombre:</label></td>
-            <td><input id="nombre" name="nombre" value="" required/></td>
+            <td><input id="nombre" name="nombre" value="" required readonly/></td>
         </tr>
         <tr>    
 	        <td><label>RFC:</label> </td> 
@@ -230,7 +230,7 @@ switch ($accion) {
             <td></td>
             <td></td>
             <td style="color: #39c973; font-weight: 900">TOTAL:</td>
-            <td><u><input type="number" id="totalDeduccion" name="totalDeduccion" readnly></u></td>
+            <td><u><input type="text" id="totalDeduccion" name="totalDeduccion" readonly></u></td>
         </tr>
         <tr>
             <td colspan="4" style="background-color: #39c973"> <label> &nbsp </label></td>
@@ -239,7 +239,7 @@ switch ($accion) {
             <td></td>
             <td></td>
             <td style="color: #39c973; font-weight: 900">TOTAL NOMINA:</td>
-            <td><input type="decimal" id="totalNomina" name="totalNomina" readonly></td>
+            <td><input type="decimal" id="nominaNeto" name="nominaNeto" readonly></td>
         </tr>
         <tr>
             <td colspan="4" align="center"><button class="botonGenerar" value="btnAgregar" type="submit" name="accion" s>Generar Nomina</button></td>
