@@ -26,27 +26,27 @@ include "conexion.php";
         <td>Nombre</td>
         <td>RFC</td>
         <td>NSS</td>
-    </tr>
+    </tr> -->
     <?php 
-        foreach(mysqli_query($conexion,$queryEmpleado) as $fila){?>
-    <tr>
-        <td><?php echo $fila['idEmpleado'] ?></td>
-        <td><?php echo $fila['nombre'] ?></td>
-        <td><?php echo $fila['rfc'] ?></td>
-        <td><?php echo $fila['nss'] ?></td>
+        //foreach(mysqli_query($conexion,$queryEmpleado) as $fila){?>
+    <!-- <tr>
+        <td><?php //echo $fila['idEmpleado'] ?></td>
+        <td><?php //echo $fila['nombre'] ?></td>
+        <td><?php //echo $fila['rfc'] ?></td>
+        <td><?php //echo $fila['nss'] ?></td> -->
         <?php
-            $idEmpleado = $fila['idEmpleado'];
-            $tipoNomina= $fila['tipoNomina'];
-            $nombre = $fila['nombre'];
-            $nombre = str_replace(" ","&nbsp;", $nombre);
-            $rfc = $fila['rfc'];
-            $nss = $fila['nss'];
+            // $idEmpleado = $fila['idEmpleado'];
+            // $tipoNomina= $fila['tipoNomina'];
+            // $nombre = $fila['nombre'];
+            // $nombre = str_replace(" ","&nbsp;", $nombre);
+            // $rfc = $fila['rfc'];
+            // $nss = $fila['nss'];
         ?>
-        <td><input type="button" value="Seleccionar" onclick="datosEmpleado('<?php echo $idEmpleado ?>','<?php echo $tipoNomina ?>','<?php echo $nombre ?>','<?php echo $rfc?>','<?php echo $nss ?>')"></td>
-    </tr>
+        <!-- <td><input type="button" value="Seleccionar" onclick="datosEmpleado('<?php //echo $idEmpleado ?>','<?php //echo $tipoNomina ?>','<?php //echo $nombre ?>','<?php //echo $rfc?>','<?php //echo $nss ?>')"></td>
+    </tr> -->
     <?php 
-        } 
-    ?> -->
+        // } 
+    ?>
 </table>
     
 </body>

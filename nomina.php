@@ -18,21 +18,20 @@
 </header>   
 <body>
     <div class="contenedor">
-        <a href="crearNomina.php">
+        <a href="crearNomina.php" style="text-decoration: none">
         <div class="carta">
-            <img src="imagenes/crearNomina.png">
-            <a href="crearNomina.php">Crear Nomina</a>
+            <img src="imagenes/crearNomina.png">Crear Nomina
         </div>
         </a>
         <!-- <div class="carta">
             <img src="imagenes/eliminarEmpleado.png">
             <a href="#">Eliminar</a>
         </div> -->
+        <a href="mostrarNominas.php" style="text-decoration: none">
         <div class="carta">
-            <img src="imagenes/mostrarNomina.png">
-            
-            <a href="#">Mostrar Nominas</a>
+            <img src="imagenes/mostrarNomina.png">Mostrar Nominas
         </div>
+        </a>
     </div>
     <footer>
     </footer>

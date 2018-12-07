@@ -3,52 +3,67 @@ include "conexion.php";
 date_default_timezone_set('America/Mexico_City');
 
 
-
-    $nombre = (isset($_POST['nombre']))?$_POST['nombre']:"";
-    $numTel = (isset($_POST['numTel']))?$_POST['numTel']:"";
-    $email = (isset($_POST['email']))?$_POST['email']:"";
-    $idPuesto = (isset($_POST['idPuesto']))?$_POST['idPuesto']:"";
-    $idArea = (isset($_POST['idArea']))?$_POST['idArea']:"";    
+    $totalNomina = (isset($_POST['totalNomina']))?$_POST['totalNomina']:"";
+    $conceptoNomina = (isset($_POST['conceptoNomina']))?$_POST['conceptoNomina']:"";
+    $fecha = (isset($_POST['fecha']))?$_POST['fecha']:"";
     $tipoNomina = (isset($_POST['tipoNomina']))?$_POST['tipoNomina']:"";
-    $direccion = (isset($_POST['direccion']))?$_POST['direccion']:"";
     $rfc = (isset($_POST['rfc']))?$_POST['rfc']:"";
     $nss = (isset($_POST['nss']))?$_POST['nss']:"";
+    $fondoAhorro = (isset($_POST['fondoAhorro']))?$_POST['fondoAhorro']:"";
+    $valesDespensa = (isset($_POST['valesDespensa']))?$_POST['valesDespensa']:"";    
+    $ayudaGasolina = (isset($_POST['ayudaGasolina']))?$_POST['ayudaGasolina']:"";
+    $primaVacacional = (isset($_POST['primaVacacional']))?$_POST['primaVacacional']:"";
+    $totalPercepcion = (isset($_POST['totalPercepcion']))?$_POST['totalPercepcion']:"";
+    $totalDeduccion = (isset($_POST['totalDeduccion']))?$_POST['totalDeduccion']:"";
+    $isr = (isset($_POST['isr']))?$_POST['isr']:"";
+    $infonavit = (isset($_POST['infonavit']))?$_POST['infonavit']:"";
+    $imss = (isset($_POST['imss']))?$_POST['imss']:"";
+    $faltas = (isset($_POST['faltas']))?$_POST['faltas']:"";
+    $retardos = (isset($_POST['retardos']))?$_POST['retardos']:"";
+    $idEmpleado = (isset($_POST['idEmpleado']))?$_POST['idEmpleado']:"";
+    $bonoProductividad = (isset($_POST['bonoProductividad']))?$_POST['bonoProductividad']:"";
+    $tiempoExtra = (isset($_POST['tiempoExtra']))?$_POST['tiempoExtra']:"";
+    $totalNomina += $bonoProductividad; 
     $genero = (isset($_POST['genero']))?$_POST['genero']:"";
 
     $sueldoBase = (isset($_POST['sueldoBase']))?$_POST['sueldoBase']:"1";
 
-    $factorFondoAhorro = 0.10;
-
-    $fondoAhorro = $factorFondoAhorro * $sueldoBase;
-
-
 
 $accion = (isset($_POST['accion']))?$_POST['accion']:"";
-// switch ($accion) {
-//     case "btnAgregar":
-//         //Creamos el query para insertar un registro en MySql, y lo mandamos utilizando mysqli_query();
-//         //$sql = "INSERT INTO empleado (nombre, numTel, email, idPuesto, idArea, tipoNomina, direccion, rfc, nss, genero, fechaIngreso, activo) VALUES ('$nombre', $numTel, '$email', $idPuesto, $idArea, $tipoNomina, '$direccion', '$rfc', '$nss', '$genero', CURDATE(), 1)";
-//         $agregarNomina = "INSERT INTO `nomina` (`idEmpleado`, `nombre`, `numTel`, `email`, `idPuesto`, `idArea`, 
-//                                         `tipoNomina`, `direccion`, `rfc`, `nss`, `genero`, `fechaIngreso`, 
-//                                         `activo`) 
-//                 VALUES (NULL, '$nombre', $numTel, '$email', '$idPuesto', '$idArea', '$tipoNomina', '$direccion',
-//                          '$rfc', '$nss', '$genero', CURDATE(), 1)";
-//         $query = mysqli_query($conexion,$agregarEmpleado) or die (mysqli_error($conexion));
-//         //Validamos si mysqli_query(); retorna un true o un false para saber si pudo hacer la inserción
-//         if ($query) {
-//             echo "<script>alert('Empleado agregado con éxito')</script>";
-//             header("location: empleados.php?success");
-//         }else{
-            
-//             echo "No se pudo agregar empleado, error: ".mysqli_error($con)."<br>.".mysqli_errno($con);
-            
-//             //echo("Error description: " . mysqli_error($conexion));
-//         }
+switch ($accion) {
+    case "btnAgregar":
+        //Creamos el query para insertar un registro en MySql, y lo mandamos utilizando mysqli_query();
+        //$sql = "INSERT INTO empleado (nombre, numTel, email, idPuesto, idArea, tipoNomina, direccion, rfc, nss, genero, fechaIngreso, activo) VALUES ('$nombre', $numTel, '$email', $idPuesto, $idArea, $tipoNomina, '$direccion', '$rfc', '$nss', '$genero', CURDATE(), 1)";
+        // $agregarNomina = "INSERT INTO `nomina` (`idEmpleado`, `nombre`, `numTel`, `email`, `idPuesto`, `idArea`, 
+        //                                 `tipoNomina`, `direccion`, `rfc`, `nss`, `genero`, `fechaIngreso`, 
+        //                                 `activo`) 
+        //         VALUES (NULL, '$nombre', $numTel, '$email', '$idPuesto', '$idArea', '$tipoNomina', '$direccion',
+        //                  '$rfc', '$nss', '$genero', CURDATE(), 1)";
         
-//         /*echo $nombre;
-//         echo "Presionaste btnAgregar";*/
-//         break;
-// }
+        $agregarNomina = "INSERT INTO `nomina` (`idNomina`, `idEmpleado`, `nominaNeto`, 
+                                                `concepto`, `fecha`, `tipoNomina`, `fondoAhorro`,
+                                                `valesDespensa`, `ayudaGasolina`, `primaVacacional`,
+                                                `totalPercepcion`, `totalDeduccion`, `isr`, `infonavit`,
+                                                `imss`, `faltas`, `retardos`, `bonoProductividad`, `aguinaldo`, `tiempoExtra`)
+                         VALUES (NULL, '$idEmpleado', '$totalNomina', '$conceptoNomina', '$fecha', '$tipoNomina', 
+                                '$fondoAhorro', '$valesDespensa', '$ayudaGasolina','$primaVacacional', '$totalPercepcion',
+                                 '$totalDeduccion', '0', '$infonavit', '$imss', '0', '0', '$bonoProductividad', '0')";
+        $query = mysqli_query($conexion,$agregarNomina) or die (mysqli_error($conexion));
+        //Validamos si mysqli_query(); retorna un true o un false para saber si pudo hacer la inserción
+        if ($query) {
+            echo "<script>alert('Empleado agregado con éxito')</script>";
+            header("location: empleados.php?success");
+        }else{
+            
+            echo "No se pudo agregar empleado, error: ".mysqli_error($con)."<br>.".mysqli_errno($con);
+            
+            //echo("Error description: " . mysqli_error($conexion));
+        }
+        
+        /*echo $nombre;
+        echo "Presionaste btnAgregar";*/
+        break;
+}
 
 ?>
 <!DOCTYPE html>
@@ -70,7 +85,7 @@ $accion = (isset($_POST['accion']))?$_POST['accion']:"";
 
     var sueldoBase = document.getElementById(sueldoBase).value;
     var sueldoBasex2 = sueldoBase * 2;
-
+    var prueba = document.getElementById(prueba).value = 100;
     document.getElementById(sueldoBase).value = sueldoBasex2;
 
 </script>  
@@ -93,7 +108,7 @@ $accion = (isset($_POST['accion']))?$_POST['accion']:"";
             <td colspan="4" align="center"><b>DATOS DEL EMPLEADO</td>
         </tr>
         <tr>
-            <td><label> IdEmpleado </label></td>
+            <td><label>Numero de Empleado </label></td>
             <td><input name="idEmpleado" id="idEmpleado" value="" readonly required/> <input type="button" onclick="popup()" style="background-image: url(imagenes/buscar.ico); padding: 2px 10px 15px 20px; background-repeat: no-repeat;"></td>
             <td><label>Nombre:</label></td>
             <td><input id="nombre" name="nombre" value="" required/></td>
@@ -115,7 +130,7 @@ $accion = (isset($_POST['accion']))?$_POST['accion']:"";
         </tr>
         <tr>
             <td style="color: #39c973"><b>DATOS DE LA NOMINA:</td>        
-            <td><label for='person3'> Fecha: </label><input type="text" name="fechaNomina" id="fechaNomina" value="<?php echo date("Y-m-d") ?>" readonly > </td>
+            <td><label for='person3'> Fecha: </label><input type="text" name="fecha" id="fecha" value="<?php echo date("Y-m-d") ?>" readonly > </td>
             <td colspan="2"><label>Tipo nomina: </label>
                 <input type="text" name="tipoNomina" id="tipoNomina" readonly>
             </td>
@@ -127,19 +142,19 @@ $accion = (isset($_POST['accion']))?$_POST['accion']:"";
             <td><label for='person3'> Tiempo extra (horas): </label></td>
             <td>
             <select>
-                    <option value="0">N/A</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
+                    <option value="0" name="tiempoExtra" id="tiempoExtra">N/A</option>
+                    <option value="1" name="tiempoExtra" id="tiempoExtra">1</option>
+                    <option value="2" name="tiempoExtra" id="tiempoExtra">2</option>
+                    <option value="3" name="tiempoExtra" id="tiempoExtra">3</option>
+                    <option value="4" name="tiempoExtra" id="tiempoExtra">4</option>
+                    <option value="5" name="tiempoExtra" id="tiempoExtra">5</option>
+                    <option value="6" name="tiempoExtra" id="tiempoExtra">6</option>
+                    <option value="7" name="tiempoExtra" id="tiempoExtra">7</option>
+                    <option value="8" name="tiempoExtra" id="tiempoExtra">8</option>
+                    <option value="9" name="tiempoExtra" id="tiempoExtra">9</option>
+                    <option value="10" name="tiempoExtra" id="tiempoExtra">10</option>
+                    <option value="11" name="tiempoExtra" id="tiempoExtra">11</option>
+                    <option value="12" name="tiempoExtra" id="tiempoExtra">12</option>
                 </select>
             </td>
             <td><label> Bono de productividad: </label> </td>
@@ -156,21 +171,24 @@ $accion = (isset($_POST['accion']))?$_POST['accion']:"";
             <td><label>Prima Vacacional: </label></td>
             <td><input name="primaVacacional" id="primaVacacional" type="number" readonly></td>
         </tr>
-        <tr>
-            <td><label>Aguinaldo: </label></td>
-            <td colspan="3"><input name="ayudaGasolina" id="ayudaGasolina" type="number" readonly></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
+        
+        <?php
+            
+            if(date("n")==12){
+                echo '<tr><td><label>Aguinaldo: </label></td>
+                <td colspan="3"><input name="aguinaldo" id="aguinaldo" type="number" readonly></td></tr>';
+            }
+        ?>
+            <td>Concepto Nomina: </td>
+            <td><input type="text" name="conceptoNomina" id="conceptoNomina" value="Pago de Nomina" readonly></td>
             <td style="color: #39c973; font-weight: 900">TOTAL:</td>
-            <td><u>AQUI SE MOSTRARA EL TOTAL</u></td>
+            <td><u><input type="number" id="totalPercepcion" name="totalPercepcion" readonly></u></td>
         </tr>
         <tr>
             <td colspan="4" style="background-color: #39c973"> <label> &nbsp </label></td>
         </tr>
         <tr>
-            <td colspan="4" align="center   "><b>DEDUCCIONES</b></td>
+            <td colspan="4" align="center"><b>DEDUCCIONES</b></td>
         </tr>
         <tr>
             <td><label>Faltas: </label></td>
@@ -193,15 +211,35 @@ $accion = (isset($_POST['accion']))?$_POST['accion']:"";
         </tr>
         <tr>
             <td><label>Retardos: </label></td>
-            <td><input name="retardos" id="retardos" type="number" readonly></td>
-            <td><label>Prestamos</label>
-            <td><input type="number" readonly></td>
+                <td>
+                    <select>
+                        <option id="retardos" name="retardos" value="0">N/A</option>
+                        <option id="retardos" name="retardos" value="1">1</option>
+                        <option id="retardos" name="retardos" value="2">2</option>
+                        <option id="retardos" name="retardos" value="3">3</option>
+                        <option id="retardos" name="retardos" value="4">4</option>
+                        <option id="retardos" name="retardos" value="5">5</option>
+                        <option id="retardos" name="retardos" value="6">6</option>
+                        <option id="retardos" name="retardos" value="7">7</option>
+                    </select>
+                </td>
+            <td><label>Prestamos: </label>
+            <td><input type="number" id="prestamos" readonly disabled="true"></td>
         </tr>
         <tr>
             <td></td>
             <td></td>
             <td style="color: #39c973; font-weight: 900">TOTAL:</td>
-            <td><u>AQUI SE MOSTRARA EL TOTAL</u></td>
+            <td><u><input type="number" id="totalDeduccion" name="totalDeduccion" readnly></u></td>
+        </tr>
+        <tr>
+            <td colspan="4" style="background-color: #39c973"> <label> &nbsp </label></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td style="color: #39c973; font-weight: 900">TOTAL NOMINA:</td>
+            <td><input type="decimal" id="totalNomina" name="totalNomina" readonly></td>
         </tr>
         <tr>
             <td colspan="4" align="center"><button class="botonGenerar" value="btnAgregar" type="submit" name="accion" s>Generar Nomina</button></td>
