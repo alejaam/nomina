@@ -239,7 +239,7 @@ switch ($accion) {
             <td></td>
             <td></td>
             <td style="color: #39c973; font-weight: 900">TOTAL NOMINA:</td>
-            <td><input type="decimal" id="nominaNeto" name="nominaNeto" readonly></td>
+            <td><input type="number" id="nominaNeto" name="nominaNeto" readonly></td>
         </tr>
         <tr>
             <td colspan="4" align="center"><button class="botonGenerar" value="btnAgregar" type="submit" name="accion" s>Generar Nomina</button></td>

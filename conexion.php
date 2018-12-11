@@ -3,7 +3,7 @@
 $servidor = "localhost";
 $baseDatos = "nomina";
 $nombreUsuario = "root";
-$contraseña = "acatucontraseña";
+$contraseña = "";
 
 // Creando la conexión 
 

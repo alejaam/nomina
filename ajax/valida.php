@@ -5,11 +5,13 @@
     $tablaTmp = "";
 
     //$sql = "SELECT idEmpleado,tipoNomina, nombre,rfc,nss FROM empleado";
-    $sql = "SELECT E.idEmpleado,E.tipoNomina, E.nombre,E.rfc,E.nss,E.idPuesto,E.fechaIngreso,P.sueldoBase FROM empleado E, puesto P WHERE E.idPuesto = P.idPuesto and nombre LIKE '".$_POST["texto"]."%'";
+    $sql = "SELECT E.idEmpleado,E.tipoNomina, E.nombre,E.rfc,E.nss,E.idPuesto,E.fechaIngreso,P.sueldoBase FROM empleado E, puesto P 
+    WHERE E.idPuesto = P.idPuesto AND nombre LIKE '".$_POST["texto"]."%'";
     if($_POST["texto"] != ""){
 
         //$sql ="SELECT idEmpleado,tipoNomina,nombre,rfc,nss FROM empleado where nombre LIKE '".$_POST["texto"]."%'";
-        $sql = "SELECT E.idEmpleado,E.tipoNomina, E.nombre,E.rfc,E.nss,E.idPuesto,E.fechaIngreso,P.sueldoBase FROM empleado E, puesto P WHERE E.idPuesto = P.idPuesto and nombre LIKE '".$_POST["texto"]."%'";
+        $sql = "SELECT E.idEmpleado,E.tipoNomina, E.nombre,E.rfc,E.nss,E.idPuesto,E.fechaIngreso,P.sueldoBase FROM empleado E, puesto P 
+        WHERE E.idPuesto = P.idPuesto AND nombre LIKE '".$_POST["texto"]."%'";
     }
 
     $tmp="<table class='table table-hover' border='1px'>

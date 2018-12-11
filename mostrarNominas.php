@@ -26,30 +26,34 @@
         <tr>        
             <th>Id Nomina</th>
             <th>Id Empleado</th>
-            <th>nominaNeto</th>
-            <th>concepto</th>
-            <th>fecha</th>
-            <th>tipoNomina</th>
+            <th>Total Nomina</th>
+            <th>Concepto</th>
+            <th>Fecha</th>
+            <th>Tipo de Nomina</th>
             <th>Acción</th>
         </tr>
 
         <?php 
           
-          $sql = "SELECT empl.*, nom.*, pto.* FROM empleado empl INNER JOIN puesto pto ON empl.idPuesto = pto.idPuesto INNER JOIN nomina nom ON empl.idEmpleado = nom.idEmpleado WHERE empl.activo= 1";
-          //mysqli_query($conexion, "SET NAMES 'utf8'");
-          //$query = mysqli_query($conexion,$sql);
-        foreach(mysqli_query($conexion,$sql) as $fila){?>
+            $sql = "SELECT empl.*, nom.*, pto.* FROM empleado empl 
+                    INNER JOIN puesto pto ON empl.idPuesto = pto.idPuesto 
+                    INNER JOIN nomina nom ON empl.idEmpleado = nom.idEmpleado 
+                    WHERE empl.activo= 1";
+            //mysqli_query($conexion, "SET NAMES 'utf8'");
+            //$query = mysqli_query($conexion,$sql);
+            foreach(mysqli_query($conexion,$sql) as $fila){
+
+        ?>
         <tr>
             <td><?php echo $fila['idNomina'] ?></td>
             <td><?php echo $fila['idEmpleado'] ?></td>
+            <td><?php echo $fila['nombre'] ?></td>
             <td><?php echo $fila['nominaNeto'] ?></td>
             <td><?php echo $fila['concepto'] ?></td>
             <td><?php echo $fila['fecha'] ?></td>
-            <td><?php echo $fila['tipoNomina'] ?></td>
-                
+            <td><?php echo $fila['tipoNomina'] ?></td>  
             <td>
             <form action="verNomina.php" method="POST">
-            
                 <input type="hidden" name="idNomina" value="<?php echo $fila['idNomina'] ?>">
                 <input type="hidden" name="idEmpleado" value="<?php echo $fila['idEmpleado'] ?>">
                 <input type="hidden" name="nominaNeto" value="<?php echo $fila['nominaNeto'] ?>">
@@ -63,26 +67,26 @@
                 <input type="hidden" name="totalPercepcion" value="<?php echo $fila['totalPercepcion']?>">
                 <input type="hidden" name="totalDeduccion" value="<?php echo $fila['totalDeduccion'] ?>">
                 <input type="hidden" name="isr" value="<?php echo $fila['isr'] ?>">
-                <input type="hidden" name="imss" value="<?php echo $fila['imss'] ?>">
                 <input type="hidden" name="infonavit" value="<?php echo $fila['infonavit'] ?>">
+                <input type="hidden" name="imss" value="<?php echo $fila['imss'] ?>">
                 <input type="hidden" name="faltas" value="<?php echo $fila['faltas'] ?>">
                 <input type="hidden" name="retardos" value="<?php echo $fila['retardos'] ?>">
                 <input type="hidden" name="bonoProductividad" value="<?php echo $fila['bonoProductividad'] ?>">
+                <input type="hidden" name="tiempoExtra" value="<?php echo $fila['tiempoExtra']?>">
                 <input type="hidden" name="aguinaldo" value="<?php echo $fila['aguinaldo']?>">
                 <input type="hidden" name="sueldoBase" value="<?php echo $fila['sueldoBase']?>">
                 <input type="hidden" name="rfc" value="<?php echo $fila['rfc']?>">
                 <input type="hidden" name="nss" value="<?php echo $fila['nss']?>">
-                <input type="hidden" name="tiempoExtra" value="<?php echo $fila['tiempoExtra']?>">
-                
                 <input type="submit" value="Ver Nomina" name="accion">
-                <?php 
-                    } 
-                ?>
+
             </form>
             </td>
-            
         </tr>
-        
-        </table>
+        <?php 
+            
+                } 
+
+         ?>
+    </table>
 </body>
 </html>

@@ -3,14 +3,13 @@
     include "conexion.php";
 
     $idNomina = (isset($_POST['idNomina']))?$_POST['idNomina']:"";
+    $idEmpleado = (isset($_POST['idEmpleado']))?$_POST['idEmpleado']:"";
+    $nominaNeto = (isset($_POST['nominaNeto']))?$_POST['nominaNeto']:"";
     $conceptoNomina = (isset($_POST['concepto']))?$_POST['concepto']:"";
     $fecha = (isset($_POST['fecha']))?$_POST['fecha']:"";
     $tipoNomina = (isset($_POST['tipoNomina']))?$_POST['tipoNomina']:"";
-    $nominaNeto = (isset($_POST['nominaNeto']))?$_POST['nominaNeto']:"";
-    $rfc = (isset($_POST['rfc']))?$_POST['rfc']:"";
-    $nss = (isset($_POST['nss']))?$_POST['nss']:"";
     $fondoAhorro = (isset($_POST['fondoAhorro']))?$_POST['fondoAhorro']:"";
-    $valesDespensa = (isset($_POST['valesDespensa']))?$_POST['valesDespensa']:"";    
+    $valesDespensa = (isset($_POST['valesDespensa']))?$_POST['valesDespensa']:"";
     $ayudaGasolina = (isset($_POST['ayudaGasolina']))?$_POST['ayudaGasolina']:"";
     $primaVacacional = (isset($_POST['primaVacacional']))?$_POST['primaVacacional']:"";
     $totalPercepcion = (isset($_POST['totalPercepcion']))?$_POST['totalPercepcion']:"";
@@ -20,10 +19,11 @@
     $imss = (isset($_POST['imss']))?$_POST['imss']:"";
     $faltas = (isset($_POST['faltas']))?$_POST['faltas']:"";
     $retardos = (isset($_POST['retardos']))?$_POST['retardos']:"";
-    $idEmpleado = (isset($_POST['idEmpleado']))?$_POST['idEmpleado']:"";
     $bonoProductividad = (isset($_POST['bonoProductividad']))?$_POST['bonoProductividad']:"";
-    $sueldoBase = (isset($_POST['sueldoBase']))?$_POST['sueldoBase']:"";
     $tiempoExtra = (isset($_POST['tiempoExtra']))?$_POST['tiempoExtra']:"";
+    $sueldoBase = (isset($_POST['sueldoBase']))?$_POST['sueldoBase']:"";
+    $rfc = (isset($_POST['rfc']))?$_POST['rfc']:"";
+    $nss = (isset($_POST['nss']))?$_POST['nss']:"";
 
 ?>
 <!DOCTYPE html>
@@ -34,7 +34,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Nomina n° <?php echo $idNomina ?></title>
     <link rel="stylesheet" href="estilos/main.css">
-   
+    <style media='print'>
+        input{display:none;} /* esto oculta los input cuando imprimes */
+    </style>
+    <style media='screen'>
+        input{display:block;} /* muestra los input en la pantalla */
+    </style>
 </head>
 <body>
 <table class="frm" border="1px">

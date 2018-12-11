@@ -107,7 +107,7 @@ function calcularNomina(idEmp,tipoNomina,nombre,rfc,nss,sueldoBase,fechaIngreso)
     var totalDeducciones = infonavit + sbcIMSS;
     opener.document.crearNomina.totalDeduccion.value = totalDeducciones.toFixed(2);
     var totalNomina = totalPercepciones - totalDeducciones;
-    opener.document.crearNomina.totalNomina.value = totalNomina.toFixed(2);
+    opener.document.crearNomina.nominaNeto.value = totalNomina.toFixed(2);
     window.close();
 
 };
