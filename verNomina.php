@@ -56,7 +56,9 @@
             <td><?php echo $fila['nombre'] ?></td>
         </tr>
         <?php
-                }
+
+            }
+            
         ?>
         <tr>    
 	        <td><label>RFC:</label> </td> 
